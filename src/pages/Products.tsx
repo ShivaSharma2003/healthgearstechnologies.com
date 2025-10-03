@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiFilter, FiSearch, FiGrid, FiList, FiStar } from "react-icons/fi";
 import ultrasoundMachines from "../data/Products";

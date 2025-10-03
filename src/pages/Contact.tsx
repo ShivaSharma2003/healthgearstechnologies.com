@@ -17,18 +17,11 @@ import {
 
 const officeLocations = [
   {
-    city: "New York",
-    address: "350 Fifth Avenue, New York, NY 10118",
-    phone: "+1 (212) 555-0123",
-    email: "nyc@healthgear.com",
+    city: "Jaipur",
+    address: "115-116, Parshavnath Colony, Janpath, Nirman Nagar, Jaipur, Rajasthan 302019",
+    phone: "+91 78500 99148",
+    email: "healthgearstechnologies@gmail.com",
     hours: "Mon-Fri: 9:00 AM - 6:00 PM"
-  },
-  {
-    city: "London",
-    address: "30 St Mary Axe, London EC3A 8BF",
-    phone: "+44 20 7123 4567",
-    email: "london@healthgear.com",
-    hours: "Mon-Fri: 9:00 AM - 5:30 PM"
   }
 ];
 
@@ -298,7 +291,7 @@ export default function Contact() {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              {officeLocations.map((office, index) => (
+              {officeLocations.map((office) => (
                 <div
                   key={office.city}
                   className="bg-white rounded-2xl shadow-sm p-8"
