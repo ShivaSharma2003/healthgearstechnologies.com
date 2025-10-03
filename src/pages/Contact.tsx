@@ -12,40 +12,41 @@ import {
   FiGlobe,
   FiHelpCircle,
   FiBriefcase,
-  FiFileText
+  FiFileText,
 } from "react-icons/fi";
 
 const officeLocations = [
   {
     city: "Jaipur",
-    address: "115-116, Parshavnath Colony, Janpath, Nirman Nagar, Jaipur, Rajasthan 302019",
+    address:
+      "115-116, Parshavnath Colony, Janpath, Nirman Nagar, Jaipur, Rajasthan 302019",
     phone: "+91 78500 99148",
     email: "healthgearstechnologies@gmail.com",
-    hours: "Mon-Fri: 9:00 AM - 6:00 PM"
-  }
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM",
+  },
 ];
 
 const contactReasons = [
   {
     icon: FiHelpCircle,
     title: "Technical Support",
-    description: "Get help with your medical devices and software"
+    description: "Get help with your medical devices and software",
   },
   {
     icon: FiBriefcase,
     title: "Business Inquiries",
-    description: "Partnership opportunities and business development"
+    description: "Partnership opportunities and business development",
   },
   {
     icon: FiFileText,
     title: "Documentation",
-    description: "Request product documentation and specifications"
+    description: "Request product documentation and specifications",
   },
   {
     icon: FiGlobe,
     title: "International Sales",
-    description: "Connect with our global sales team"
-  }
+    description: "Connect with our global sales team",
+  },
 ];
 
 export default function Contact() {
@@ -56,7 +57,7 @@ export default function Contact() {
     phone: "",
     company: "",
     subject: "Technical Support",
-    message: ""
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -65,10 +66,14 @@ export default function Contact() {
     setSubmitted(true);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -87,8 +92,8 @@ export default function Contact() {
               Let's Connect
             </h1>
             <p className="text-xl text-blue-100">
-              Have questions about our healthcare solutions? We're here to help and would 
-              love to hear from you.
+              Have questions about our healthcare solutions? We're here to help
+              and would love to hear from you.
             </p>
           </motion.div>
         </div>
@@ -113,9 +118,7 @@ export default function Contact() {
                 <h3 className="text-lg font-semibold text-slate-900 mb-2">
                   {reason.title}
                 </h3>
-                <p className="text-slate-600">
-                  {reason.description}
-                </p>
+                <p className="text-slate-600">{reason.description}</p>
               </motion.div>
             ))}
           </div>
@@ -273,12 +276,16 @@ export default function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="p-6 bg-blue-50 rounded-lg text-center"
                 >
-                  <FiCheckCircle className="mx-auto mb-4 text-blue-600" size={48} />
+                  <FiCheckCircle
+                    className="mx-auto mb-4 text-blue-600"
+                    size={48}
+                  />
                   <h3 className="text-xl font-semibold text-slate-900 mb-2">
                     Thank You!
                   </h3>
                   <p className="text-slate-600">
-                    We've received your message and will get back to you shortly.
+                    We've received your message and will get back to you
+                    shortly.
                   </p>
                 </motion.div>
               )}

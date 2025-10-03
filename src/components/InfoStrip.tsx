@@ -13,11 +13,11 @@ export default function InfoStrip() {
         <div className="max-w-6xl mx-auto px-6 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2">
+              <div className="md:flex hidden items-center gap-2">
                 <FiClock className="text-blue-200" />
                 <span>Mon-Fri: 9:00 AM - 6:00 PM EST</span>
               </div>
-              <div className="hidden md:flex items-center gap-6">
+              <div className="flex items-center gap-6">
                 <a
                   href="tel:+917850099148"
                   className="flex items-center gap-2 hover:text-blue-200"
@@ -34,7 +34,7 @@ export default function InfoStrip() {
                 </a>
                 <a
                   href="mailto:healthgearstechnologies@gmail.com"
-                  className="flex items-center gap-2 hover:text-blue-200"
+                  className="md:flex hidden items-center gap-2 hover:text-blue-200"
                 >
                   <FiMail />
                   <span>healthgearstechnologies@gmail.com</span>
