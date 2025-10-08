@@ -9,11 +9,6 @@ import {
   FiGlobe,
 } from "react-icons/fi";
 
-import hitachiLogo from "../assets/logos/Hitachi_Logo.png";
-import geLogo from "../assets/logos/GE_Logo.png";
-import samsungLogo from "../assets/logos/Samsung_Logo.png";
-import Fujifilm from "../assets/logos/Fujifilm_Logo.png";
-
 const slides = [
   {
     id: 1,
@@ -45,7 +40,12 @@ const slides = [
   },
 ];
 
-const partneredBrands = [hitachiLogo, samsungLogo, geLogo, Fujifilm];
+const partneredBrands = [
+  { src: "/logos/Hitachi_Logo.png" },
+  { src: "/logos/Samsung_Logo.png" },
+  { src: "/logos/Ge_Logo.png" },
+  { src: "/logos/Fujifilm_Logo.png" },
+];
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -166,9 +166,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
           >
-            {partneredBrands.map((brand, index) => (
+            {partneredBrands.map((src, index) => (
               <motion.div
-                key={brand}
+                key={src.src}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -182,8 +182,8 @@ export default function Home() {
                     <div className="text-center">
                       <img
                         className="text-sm font-medium text-slate-700 group-hover:text-blue-600 transition-colors"
-                        src={brand}
-                        alt={brand}
+                        src={src.src}
+                        alt={src.src}
                       />
                       <p className="text-xs text-slate-500 mt-1">
                         Trusted Partner
