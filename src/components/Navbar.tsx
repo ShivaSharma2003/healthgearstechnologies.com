@@ -15,33 +15,29 @@ const productsDropdown = [
     label: "Ultrasound Systems",
     items: [
       { to: "/products/ge", label: "GE Healthcare" },
-      { to: "/products/philips", label: "Philips" },
       { to: "/products/samsung", label: "Samsung" },
       { to: "/products/hitachi", label: "Hitachi" },
-      { to: "/products/canon", label: "Canon" },
-      { to: "/products/fujifilm", label: "Fujifilm" },
     ],
   },
   {
-    label: "System Types",
+    label: "Biopsy Guide",
     items: [
-      { to: "/products/cart-based", label: "Cart-Based Systems" },
-      { to: "/products/portable", label: "Portable Systems" },
-      { to: "/products/compact", label: "Compact Systems" },
+      { to: "/products/reusable-biopsy-guide", label: "Reusable" },
+      { to: "/products/disposable-biopsy-guide", label: "Disposable" },
     ],
   },
   {
-    label: "Clinical Solutions",
+    label: "Probes",
     items: [
-      { to: "/products/cardiology", label: "Cardiology" },
-      { to: "/products/radiology", label: "Radiology" },
+      { to: "/products/new-probes", label: "New Probes" },
+      { to: "/products/refurbished-probes", label: "Refurbished Probes" },
     ],
   },
   {
-    label: "Accessories",
+    label: "Services",
     items: [
-      { to: "/products/probes", label: "Ultrasound Probes" },
-      { to: "/products/accessories/printers", label: "Medical Printers" },
+      { to: "/products/probe-repair", label: "Probes Repair" },
+      { to: "/products/sell-ultrasound", label: "Sell Ultrasound" },
     ],
   },
 ];

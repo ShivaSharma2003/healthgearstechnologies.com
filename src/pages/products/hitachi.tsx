@@ -1,104 +1,94 @@
-import ProductLayout from "../../components/ProductLayout";
+import { motion } from "framer-motion";
 
-const HITACHI_PRODUCTS = {
-  "ARIETTA 850": {
-    manufacturer: "Hitachi",
+// Hitachi Product Models with their images
+const HITACHI_PRODUCTS = [
+  {
     model: "ARIETTA 850",
     modelNumber: "A850-SE",
     imageUrl: "https://images.unsplash.com/photo-1516069677018-378515003435?auto=format&fit=crop&w=800",
-    description: "The Hitachi ARIETTA 850 is a premium diagnostic ultrasound system that combines advanced imaging technologies with an intuitive workflow to deliver exceptional diagnostic confidence and operational efficiency.",
-    features: [
-      "eFocusing technology for enhanced image clarity throughout the field of view",
-      "Carving Imaging for advanced 3D/4D visualization",
-      "Real-time Virtual Sonography (RVS) fusion imaging",
-      "Advanced CPPS (Clinical Pure Pixel Solution) technology",
-      "Dual crystal wide-band transducer technology",
-      "Real-time Tissue Elastography with strain ratio measurement",
-      "Enhanced B-mode imaging with speckle reduction",
-      "Comprehensive measurement and analysis packages"
-    ],
-    specifications: [
-      {
-        category: "Display & Interface",
-        items: [
-          { label: "Monitor", value: "21.5\" IPS LCD" },
-          { label: "Touch Panel", value: "10.4\" Color LCD" },
-          { label: "Control Panel", value: "Height-adjustable" }
-        ]
-      },
-      {
-        category: "Imaging Technology",
-        items: [
-          { label: "B-mode Processing", value: "CPPS Advanced" },
-          { label: "Doppler Modes", value: "Color, Power, PW, CW" },
-          { label: "3D/4D", value: "Real-time with Carving" }
-        ]
-      },
-      {
-        category: "System Features",
-        items: [
-          { label: "Storage", value: "1TB SSD" },
-          { label: "Image Archive", value: "500GB dedicated" },
-          { label: "Connectivity", value: "DICOM 3.0" }
-        ]
-      },
-      {
-        category: "Physical Specifications",
-        items: [
-          { label: "Weight", value: "165 kg" },
-          { label: "Dimensions", value: "58 x 85 x 140 cm" },
-          { label: "Power Supply", value: "100-240V AC" }
-        ]
-      }
-    ]
   },
-  "Noblus": {
-    manufacturer: "Hitachi",
+  {
     model: "Noblus",
     modelNumber: "EUB-8500",
     imageUrl: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800",
-    description: "The Hitachi Noblus is a versatile ultrasound system that combines premium imaging capabilities with a compact, flexible design, making it ideal for both routine and specialized examinations.",
-    features: [
-      "Compact and flexible system design",
-      "High-resolution LCD monitor with wide viewing angle",
-      "Advanced harmonics imaging technology",
-      "Real-time Tissue Elastography",
-      "Wireless DICOM connectivity",
-      "Quick boot-up and sleep mode",
-      "Ergonomic control panel layout",
-      "Comprehensive application packages"
-    ],
-    specifications: [
-      {
-        category: "Display & Interface",
-        items: [
-          { label: "Monitor", value: "19\" LED" },
-          { label: "Operating Panel", value: "Tablet-style" },
-          { label: "Touchscreen", value: "10.4\" LCD" }
-        ]
-      },
-      {
-        category: "System Performance",
-        items: [
-          { label: "Boot Time", value: "< 30 seconds" },
-          { label: "Battery Life", value: "1 hour" },
-          { label: "Storage", value: "500GB SSD" }
-        ]
-      },
-      {
-        category: "Connectivity",
-        items: [
-          { label: "Network", value: "Wi-Fi, Ethernet" },
-          { label: "USB Ports", value: "4x USB 3.0" },
-          { label: "Video Output", value: "DVI-D, HDMI" }
-        ]
-      }
-    ]
+  },
+  {
+    model: "ARIETTA 750",
+    modelNumber: "A750-LE",
+    imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800",
+  },
+  {
+    model: "ARIETTA 650",
+    modelNumber: "A650-CL",
+    imageUrl: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800",
+  },
+  {
+    model: "LISENDO 880",
+    modelNumber: "L880-BT",
+    imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800",
+  },
+  {
+    model: "F37",
+    modelNumber: "F37-CV",
+    imageUrl: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=800",
   }
-};
+];
 
 export default function Hitachi() {
-  // For now, we'll show the ARIETTA 850 as the main product
-  const product = HITACHI_PRODUCTS["ARIETTA 850"];
-  return <ProductLayout {...product} />;
+  return (
+    <main className="pt-20">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-blue-900 to-slate-900 text-white py-16 sm:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center"
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
+              Hitachi Healthcare Products
+            </h1>
+            <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto">
+              Explore our precision Hitachi ultrasound systems with innovative imaging technology
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Products Grid - Larger Cards with Tall Images */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+            {HITACHI_PRODUCTS.map((product, index) => (
+              <motion.div
+                key={product.modelNumber}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+              >
+                <div className="aspect-[3/4] overflow-hidden">
+                  <img
+                    src={product.imageUrl}
+                    alt={product.model}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6 sm:p-8">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                    {product.model}
+                  </h3>
+                  <p className="text-base sm:text-lg text-gray-600 mb-6">
+                    Model: {product.modelNumber}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }

@@ -10,9 +10,10 @@ import {
   FiSend,
   FiCheckCircle,
   FiGlobe,
-  FiHelpCircle,
+  FiTool,
+  FiActivity,
+  FiDollarSign,
   FiBriefcase,
-  FiFileText,
 } from "react-icons/fi";
 
 const officeLocations = [
@@ -28,24 +29,24 @@ const officeLocations = [
 
 const contactReasons = [
   {
-    icon: FiHelpCircle,
-    title: "Technical Support",
-    description: "Get help with your medical devices and software",
+    icon: FiTool,
+    title: "Probe Repair Services",
+    description: "Professional repair and maintenance for ultrasound probes and transducers",
   },
   {
-    icon: FiBriefcase,
-    title: "Business Inquiries",
-    description: "Partnership opportunities and business development",
+    icon: FiActivity,
+    title: "Ultrasound Repair Services",
+    description: "Expert repair services for ultrasound machines and medical imaging equipment",
   },
   {
-    icon: FiFileText,
-    title: "Documentation",
-    description: "Request product documentation and specifications",
+    icon: FiDollarSign,
+    title: "Sell your Ultrasound",
+    description: "Get competitive quotes for selling your used ultrasound equipment",
   },
   {
     icon: FiGlobe,
     title: "International Sales",
-    description: "Connect with our global sales team",
+    description: "Connect with our global sales team for worldwide equipment solutions",
   },
 ];
 

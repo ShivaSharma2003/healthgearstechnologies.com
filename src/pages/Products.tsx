@@ -11,7 +11,6 @@ export default function Products() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedManufacturer, setSelectedManufacturer] = useState<FilterType>("all");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-
   // Get unique manufacturers
   const manufacturers = ["all", ...new Set(ultrasoundMachines.map(m => m.manufacturer))];
 
