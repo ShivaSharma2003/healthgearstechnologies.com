@@ -2,68 +2,50 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FiArrowRight,
-  FiCheck,
   FiShield,
   FiStar,
   FiTrendingUp,
   FiUsers,
-  FiAward,
-  FiClock,
   FiGlobe,
-  FiHeart,
-  FiLayers,
-  FiLifeBuoy,
-  FiSettings,
 } from "react-icons/fi";
+
+import hitachiLogo from "../assets/logos/Hitachi Logo.png";
+import geLogo from "../assets/logos/GE Logo.png";
+import samsungLogo from "../assets/logos/Samsung Logo.png";
+import Fujifilm from "../assets/logos/Fujifilm Logo.png";
 
 const slides = [
   {
     id: 1,
     src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000",
-    alt: "Modern medical device",
-    title: "Advanced Ultrasound Systems",
+    alt: "Refurbished ultrasound System",
+    title: "Refurbished ultrasound System",
     desc: "Next-generation imaging clarity",
   },
   {
     id: 2,
     src: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=2000",
-    alt: "Healthcare professional with device",
-    title: "Smart Diagnostic Tools",
+    alt: "Reusable Needle Grid",
+    title: "Refurbished ultrasound System",
     desc: "Precision meets innovation",
   },
   {
     id: 3,
     src: "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=2000",
-    alt: "Medical monitoring device",
-    title: "Remote Patient Monitoring",
+    alt: "Disposable Needle Grid",
+    title: "Disposable Needle Grid",
     desc: "Continuous care solutions",
   },
   {
     id: 4,
     src: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=2000",
-    alt: "Medical dashboard interface",
-    title: "Healthcare Analytics",
+    alt: "Ultrasound Services",
+    title: "Ultrasound Services",
     desc: "Data-driven decisions",
   },
 ];
 
-const partneredBrands = [
-  "GE Healthcare",
-  "Philips",
-  "Samsung",
-  "Canon Medical",
-  "Hitachi Healthcare",
-  "Fujifilm Sonosite",
-  "Mindray",
-  "Siemens Healthineers",
-];
-
-const certifications = [
-  { name: "FDA Approved", icon: FiCheck },
-  { name: "ISO 13485", icon: FiShield },
-  { name: "HIPAA Compliant", icon: FiLayers },
-  { name: "CE Marked", icon: FiAward },
-];
+const partneredBrands = [hitachiLogo, samsungLogo, geLogo, Fujifilm];
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -112,44 +94,30 @@ export default function Home() {
                   {slides[index].title}
                 </h2>
                 <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                  Transforming Healthcare Through Innovation
+                  Ultrasound Machine and Biopsy Devices
                 </h1>
                 <p className="text-xl text-slate-200 max-w-xl">
-                  Health Gear Technologies delivers cutting-edge medical devices
-                  and smart software solutions that enhance patient care,
-                  improve clinical workflows, and drive better healthcare
-                  outcomes.
+                  HealthGears Technologies delivers cutting-edge solutions in
+                  refurbished and new ultrasound machines, offering complete
+                  support for reusable and disposable biopsy guide attachments
+                  compatible with all ultrasound probes.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-4">
                   <a
-                    href="/products"
+                    href="/ultrasound"
                     className="px-6 py-3 rounded-md bg-blue-600 text-white font-medium shadow-lg hover:bg-blue-700 transition-colors flex items-center gap-2 group"
                   >
                     Explore Solutions
                     <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                   </a>
                   <a
-                    href="/contact"
-                    className="px-6 py-3 rounded-md bg-white/10 backdrop-blur-sm text-white font-medium border border-white/20 hover:bg-white/20 transition-colors"
+                    href="/biopsy-grid"
+                    className="px-6 py-3 rounded-md bg-blue-600 text-white font-medium shadow-lg hover:bg-blue-700 transition-colors flex items-center gap-2 group"
                   >
-                    Schedule Consultation
+                    Biopsy Grid
+                    <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                   </a>
-                </div>
-
-                {/* Certifications */}
-                <div className="mt-12 md:flex hidden">
-                  <div className="flex-wrap gap-4 flex">
-                    {certifications.map((cert) => (
-                      <div
-                        key={cert.name}
-                        className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full"
-                      >
-                        <cert.icon className="text-blue-400" size={16} />
-                        <span className="text-sm text-white">{cert.name}</span>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </motion.div>
             </div>
@@ -212,14 +180,11 @@ export default function Home() {
                   <div className="relative w-full max-w-[140px]">
                     {/* Placeholder card with brand name and styling */}
                     <div className="text-center">
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-100 to-slate-100 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                        <span className="text-2xl font-bold text-blue-600">
-                          {brand.charAt(0)}
-                        </span>
-                      </div>
-                      <h4 className="text-sm font-medium text-slate-700 group-hover:text-blue-600 transition-colors">
-                        {brand}
-                      </h4>
+                      <img
+                        className="text-sm font-medium text-slate-700 group-hover:text-blue-600 transition-colors"
+                        src={brand}
+                        alt={brand}
+                      />
                       <p className="text-xs text-slate-500 mt-1">
                         Trusted Partner
                       </p>
@@ -288,75 +253,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section with Icons */}
-      <section className="bg-gradient-to-br from-slate-50 to-white py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                <FiClock className="text-blue-600" size={24} />
-              </div>
-              <div className="text-3xl font-bold text-blue-600">15+</div>
-              <div className="mt-1 text-sm text-slate-600">
-                Years Experience
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-center"
-            >
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                <FiHeart className="text-blue-600" size={24} />
-              </div>
-              <div className="text-3xl font-bold text-blue-600">500k+</div>
-              <div className="mt-1 text-sm text-slate-600">
-                Patients Benefited
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-center"
-            >
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                <FiGlobe className="text-blue-600" size={24} />
-              </div>
-              <div className="text-3xl font-bold text-blue-600">40+</div>
-              <div className="mt-1 text-sm text-slate-600">
-                Countries Served
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="text-center"
-            >
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                <FiLifeBuoy className="text-blue-600" size={24} />
-              </div>
-              <div className="text-3xl font-bold text-blue-600">24/7</div>
-              <div className="mt-1 text-sm text-slate-600">Expert Support</div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Solutions Overview */}
+      {/* Solutions Overview
       <section className="bg-[#f8fafc] py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -377,16 +274,16 @@ export default function Home() {
               viewport={{ once: true }}
               className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden group"
             >
-              <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-600 p-6">
+              <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-600 p-3">
                 <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-white mb-4">
                   <FiShield size={24} />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-2">
-                  Diagnostic Imaging
+                  Medical Devices
                 </h3>
                 <p className="text-blue-100">
-                  State-of-the-art ultrasound systems and imaging solutions for
-                  precise diagnostics.
+                  State-of-the-art ultrasound systems and diagnostic tools
+                  designed for precision and reliability.
                 </p>
               </div>
               <div className="p-6">
@@ -506,7 +403,7 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Innovation Features */}
       <section className="bg-white py-20">
@@ -683,7 +580,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Advanced CTA */}
+      {/* Advanced CTA
       <section className="bg-gradient-to-br from-slate-900 to-slate-800 py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-8 md:p-12 overflow-hidden relative">
@@ -739,7 +636,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
