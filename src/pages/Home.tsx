@@ -25,15 +25,15 @@ const slides = [
   {
     id: 2,
     src: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=2000",
-    alt: "Reusable Needle Grid",
-    title: "Refurbished ultrasound System",
+    alt: "Reusable Needle Guide",
+    title: "Reusable Needle Guide",
     desc: "Precision meets innovation",
   },
   {
     id: 3,
     src: "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=2000",
-    alt: "Disposable Needle Grid",
-    title: "Disposable Needle Grid",
+    alt: "Disposable Needle Guide",
+    title: "Disposable Needle Guide",
     desc: "Continuous care solutions",
   },
   {
@@ -115,7 +115,7 @@ export default function Home() {
                     href="/biopsy-grid"
                     className="px-6 py-3 rounded-md bg-blue-600 text-white font-medium shadow-lg hover:bg-blue-700 transition-colors flex items-center gap-2 group"
                   >
-                    Biopsy Grid
+                    Biopsy Guide
                     <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>

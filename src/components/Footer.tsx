@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -17,7 +18,6 @@ const fadeIn = {
 export default function Footer() {
   return (
     <footer className="bg-[#f8fafc] mt-12">
-
       {/* Main Footer Content */}
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid gap-12 md:grid-cols-12">
@@ -29,7 +29,7 @@ export default function Footer() {
             variants={fadeIn}
             className="md:col-span-4"
           >
-            <div className="flex items-center gap-3">
+            <Link className="flex items-center gap-3" to="/">
               <div className="w-11 h-11 rounded-md bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center text-white font-bold">
                 H
               </div>
@@ -39,7 +39,7 @@ export default function Footer() {
                   Innovating healthcare
                 </div>
               </div>
-            </div>
+            </Link>
 
             <p className="mt-4 text-sm text-slate-600 max-w-sm">
               We design reliable medical hardware and software to improve
@@ -84,7 +84,7 @@ export default function Footer() {
             whileInView="animate"
             viewport={{ once: true }}
             variants={fadeIn}
-            className="md:col-span-5 grid grid-cols-2 gap-8"
+            className="md:col-span-5 grid grid-cols-3 gap-8"
           >
             <div>
               <h4 className="font-semibold text-slate-900 mb-4">Products</h4>
@@ -99,14 +99,6 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/products/philips"
-                    className="text-sm text-slate-600 hover:text-blue-600"
-                  >
-                    Philips
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="/products/samsung"
                     className="text-sm text-slate-600 hover:text-blue-600"
                   >
@@ -115,18 +107,31 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/products/cardiology"
+                    href="/products/samsung"
                     className="text-sm text-slate-600 hover:text-blue-600"
                   >
-                    Cardiology Solutions
+                    Hitachi
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-slate-900 mb-4">Services</h4>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="/probe-repair"
+                    className="text-sm text-slate-600 hover:text-blue-600"
+                  >
+                    Repair Ultrasound
                   </a>
                 </li>
                 <li>
                   <a
-                    href="/products/radiology"
+                    href="/sell-ultrasound"
                     className="text-sm text-slate-600 hover:text-blue-600"
                   >
-                    Radiology Solutions
+                    Sell Ultrasound
                   </a>
                 </li>
               </ul>
@@ -144,34 +149,10 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/services"
-                    className="text-sm text-slate-600 hover:text-blue-600"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="/contact"
                     className="text-sm text-slate-600 hover:text-blue-600"
                   >
                     Contact
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/careers"
-                    className="text-sm text-slate-600 hover:text-blue-600"
-                  >
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/news"
-                    className="text-sm text-slate-600 hover:text-blue-600"
-                  >
-                    News & Updates
                   </a>
                 </li>
               </ul>
