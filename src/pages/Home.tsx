@@ -9,10 +9,10 @@ import {
   FiGlobe,
 } from "react-icons/fi";
 
-import hitachiLogo from "../assets/logos/Hitachi Logo.png";
-import geLogo from "../assets/logos/GE Logo.png";
-import samsungLogo from "../assets/logos/Samsung Logo.png";
-import Fujifilm from "../assets/logos/Fujifilm Logo.png";
+import hitachiLogo from "../assets/logos/Hitachi_Logo.png";
+import geLogo from "../assets/logos/GE_Logo.png";
+import samsungLogo from "../assets/logos/Samsung_Logo.png";
+import Fujifilm from "../assets/logos/Fujifilm_Logo.png";
 
 const slides = [
   {
