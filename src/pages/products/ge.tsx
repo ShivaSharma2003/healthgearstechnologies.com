@@ -3,44 +3,36 @@ import { motion } from "framer-motion";
 // GE Product Models with their images
 const GE_PRODUCTS = [
   {
-    model: "Voluson E10",
-    modelNumber: "VE10-PRO",
-    imageUrl: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=800",
+    model: "Varsana Premier",
+    imageUrl: "/products/ge/GEVarsanaPremier.jpg",
   },
   {
-    model: "Voluson E8",
-    modelNumber: "VE8-EX",
-    imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800",
+    model: "Varsana Essential",
+    imageUrl: "/products/ge/GEVarsanaEssential.jpg",
   },
   {
-    model: "Voluson E6",
-    modelNumber: "VE6-BT",
-    imageUrl: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800",
+    model: "Varsana Balance",
+    imageUrl: "/products/ge/GEVarsanaValence.jpg",
   },
   {
-    model: "Logiq E9",
-    modelNumber: "LE9-XDclear",
-    imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800",
+    model: "Logiq V5",
+    imageUrl: "/products/ge/GElogicV5.jpg",
   },
   {
-    model: "Logiq E10",
-    modelNumber: "LE10-S",
-    imageUrl: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800",
+    model: "Logiq F6",
+    imageUrl: "/products/ge/GELogicF6.jpg",
   },
   {
-    model: "Venue 40",
-    modelNumber: "V40-POC",
-    imageUrl: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800",
+    model: "Volution P8",
+    imageUrl: "/products/ge/GEVolutionP8.jpg",
   },
   {
-    model: "Venue 50",
-    modelNumber: "V50-GO",
-    imageUrl: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800",
+    model: "Volution S6",
+    imageUrl: "/products/ge/GEVolutionS6.jpg",
   },
   {
-    model: "Vivid S70",
-    modelNumber: "VS70-4D",
-    imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800",
+    model: "Volution E8",
+    imageUrl: "/products/ge/GEVolutionE8.jpg",
   }
 ];
 
@@ -70,16 +62,11 @@ export default function GE() {
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
-            {GE_PRODUCTS.map((product, index) => (
-              <motion.div
-                key={product.modelNumber}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+            {GE_PRODUCTS.map((product) => (
+              <div
                 className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group"
               >
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className="aspect-[3/4] overflow-hidden">
                   <img
                     src={product.imageUrl}
                     alt={product.model}
@@ -91,7 +78,7 @@ export default function GE() {
                     {product.model}
                   </h3>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

@@ -12,28 +12,28 @@ import {
 const slides = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000",
+    src: "/hero/HeroSectionImg1.jpg",
     alt: "Refurbished ultrasound System",
     title: "Refurbished ultrasound System",
     desc: "Next-generation imaging clarity",
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=2000",
+    src: "/hero/HeroSectionImg2.jpg",
     alt: "Reusable Needle Guide",
     title: "Reusable Needle Guide",
     desc: "Precision meets innovation",
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=2000",
+    src: "/hero/HeroSectionImg3.jpg",
     alt: "Disposable Needle Guide",
     title: "Disposable Needle Guide",
     desc: "Continuous care solutions",
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=2000",
+    src: "/hero/HeroSectionImg4.jpg",
     alt: "Ultrasound Services",
     title: "Ultrasound Services",
     desc: "Data-driven decisions",

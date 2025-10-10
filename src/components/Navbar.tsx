@@ -12,7 +12,7 @@ const links = [
 
 const productsDropdown = [
   {
-    label: "Ultrasound Systems",
+    label: "Refurbished Ultrasound Systems",
     items: [
       { to: "/products/ge", label: "GE Healthcare" },
       { to: "/products/samsung", label: "Samsung" },
@@ -36,8 +36,8 @@ const productsDropdown = [
   {
     label: "Services",
     items: [
-      { to: "/products/probe-repair", label: "Probes Repair" },
-      { to: "/products/sell-ultrasound", label: "Sell Ultrasound" },
+      { to: "/service/probe-repair", label: "Probes Repair" },
+      { to: "/service/sell-ultrasound", label: "Sell Ultrasound" },
     ],
   },
 ];
