@@ -120,7 +120,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="/probe-repair"
+                    href="/service/probe-repair"
                     className="text-sm text-slate-600 hover:text-blue-600"
                   >
                     Repair Ultrasound
@@ -128,7 +128,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/sell-ultrasound"
+                    href="/service/sell-ultrasound"
                     className="text-sm text-slate-600 hover:text-blue-600"
                   >
                     Sell Ultrasound

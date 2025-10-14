@@ -53,7 +53,7 @@ export default function Hitachi() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
             {HITACHI_PRODUCTS.map((product) => (
               <div
-                className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group"
+                className="bg-white shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group"
               >
                 <div className="aspect-[3/4] overflow-hidden">
                   <img

@@ -30,7 +30,7 @@ const productsDropdown = [
   {
     label: "Probes",
     items: [
-      { to: "/products/new-probes", label: "New Probes" },
+      // { to: "/products/new-probes", label: "New Probes" },
       { to: "/products/refurbished-probes", label: "Refurbished Probes" },
     ],
   },
