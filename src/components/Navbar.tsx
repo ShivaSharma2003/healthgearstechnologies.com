@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { FiMenu, FiX, FiPhone, FiChevronDown } from "react-icons/fi";
+import { FiMenu, FiX, FiChevronDown, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
+import ModalContact from "./ModalContact";
 
 const links = [
   { to: "/", label: "Home" },
@@ -12,7 +13,7 @@ const links = [
 
 const productsDropdown = [
   {
-    label: "Refurbished Ultrasound Systems",
+    label: "Ultrasound Systems",
     items: [
       { to: "/products/ge", label: "GE Healthcare" },
       { to: "/products/samsung", label: "Samsung" },
@@ -44,7 +45,9 @@ const productsDropdown = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [showEnquiryModal, setShowEnquiryModal] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const location = useLocation();
@@ -64,6 +67,15 @@ export default function Navbar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Close modal on Escape
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setShowEnquiryModal(false);
+    }
+    if (showEnquiryModal) document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [showEnquiryModal]);
 
   return (
     <header className="sticky top-0 w-full z-40 bg-white shadow-sm">
@@ -87,7 +99,7 @@ export default function Navbar() {
                     ref={buttonRef}
                     onClick={() => setDropdownOpen(!dropdownOpen)}
                     onMouseEnter={() => setDropdownOpen(true)}
-                    className={`inline-flex items-center gap-2 px-2 py-1 font-medium hover:text-blue-600 ${
+                    className={`items-center inline-flex gap-2 px-2 py-1 font-medium hover:text-blue-600 ${
                       location.pathname.startsWith("/products")
                         ? "text-blue-600"
                         : "text-slate-700"
@@ -175,6 +187,16 @@ export default function Navbar() {
               )}
             </div>
           ))}
+
+          <button
+            className="hidden md:flex border border-blue-600 text-blue-600 px-4 py-1 rounded-md cursor-pointer hover:bg-blue-600 hover:text-white font-semibold"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowEnquiryModal(true);
+            }}
+          >
+            Get Enquiry
+          </button>
         </nav>
 
         <div className="md:hidden">
@@ -190,69 +212,129 @@ export default function Navbar() {
 
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.nav
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ type: "spring", damping: 20 }}
-            className="md:hidden bg-white/95 border-t"
+          <motion.div
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
+            transition={{ type: "spring", damping: 22 }}
+            className="fixed inset-0 z-50 md:hidden"
           >
-            <div className="px-6 py-4 flex flex-col gap-3">
-              {/* Main links */}
-              {links.map((l) => (
-                <NavLink
-                  key={l.to}
-                  to={l.to}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `block px-2 py-2 rounded font-medium hover:bg-slate-50 ${
-                      isActive ? "text-blue-600" : "text-slate-700"
-                    }`
-                  }
-                >
-                  {l.label}
-                </NavLink>
-              ))}
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.35 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black"
+              onClick={() => setMobileMenuOpen(false)}
+            />
 
-              {/* Products nested for mobile */}
-              <div className="mt-1 space-y-4">
-                {productsDropdown.map((category, idx) => (
-                  <div key={idx}>
-                    <div className="text-sm font-semibold px-2 py-1 text-slate-900">
-                      {category.label}
-                    </div>
-                    <div className="pl-3 flex flex-col gap-1">
-                      {category.items.map((item) => (
-                        <NavLink
-                          key={item.to}
-                          to={item.to}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className={({ isActive }) =>
-                            `block px-2 py-2 rounded text-sm hover:bg-slate-50 ${
-                              isActive
-                                ? "text-blue-600 bg-blue-50"
-                                : "text-slate-600"
-                            }`
-                          }
-                        >
-                          {item.label}
-                        </NavLink>
-                      ))}
-                    </div>
+            {/* Drawer */}
+            <motion.nav
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 22 }}
+              className="absolute right-0 top-0 bottom-0 w-80 bg-white shadow-2xl border-l overflow-auto"
+            >
+              <div className="p-4 flex items-center justify-between border-b">
+                <div className="font-semibold">Menu</div>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-2 rounded-md"
+                >
+                  <FiX />
+                </button>
+              </div>
+
+              <div className="p-4 space-y-3">
+                {/* Main links (Products handled separately) */}
+                {links.map((l) => (
+                  <div key={l.to}>
+                    {l.label !== "Products" ? (
+                      <NavLink
+                        to={l.to}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={({ isActive }) =>
+                          `block px-3 py-2 rounded font-medium hover:bg-slate-50 ${
+                            isActive ? "text-blue-600" : "text-slate-700"
+                          }`
+                        }
+                      >
+                        {l.label}
+                      </NavLink>
+                    ) : (
+                      <button
+                        onClick={() => setMobileProductsOpen(true)}
+                        className="w-full flex items-center justify-between px-3 py-2 rounded font-medium hover:bg-slate-50 text-slate-700"
+                      >
+                        <span>Products</span>
+                        <FiChevronRight />
+                      </button>
+                    )}
                   </div>
                 ))}
               </div>
+            </motion.nav>
 
-              <a
-                href="tel:+1234567890"
-                className="mt-2 inline-flex items-center gap-2 px-3 py-2 rounded-full bg-blue-50 text-blue-700 text-sm"
-              >
-                <FiPhone />
-                <span>+1 (234) 567-890</span>
-              </a>
-            </div>
-          </motion.nav>
+            {/* Products Panel - slides in from right to left on top of drawer */}
+            <AnimatePresence>
+              {mobileProductsOpen && (
+                <motion.nav
+                  initial={{ x: "100%" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "100%" }}
+                  transition={{ type: "spring", damping: 22 }}
+                  className="absolute right-0 top-0 bottom-0 w-80 bg-white shadow-2xl border-l overflow-auto"
+                >
+                  <div className="p-4 flex items-center gap-3 border-b">
+                    <button
+                      onClick={() => setMobileProductsOpen(false)}
+                      className="p-2 rounded-md"
+                    >
+                      <FiChevronLeft />
+                    </button>
+                    <div className="font-semibold">Products</div>
+                  </div>
+
+                  <div className="p-4 space-y-4">
+                    {productsDropdown.map((category, idx) => (
+                      <div key={idx}>
+                        <div className="text-sm font-semibold text-slate-900 mb-2">
+                          {category.label}
+                        </div>
+                        <div className="flex flex-col gap-1">
+                          {category.items.map((item) => (
+                            <NavLink
+                              key={item.to}
+                              to={item.to}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setMobileProductsOpen(false);
+                              }}
+                              className={({ isActive }) =>
+                                `block px-3 py-2 rounded text-sm hover:bg-slate-50 ${
+                                  isActive
+                                    ? "text-blue-600 bg-blue-50"
+                                    : "text-slate-600"
+                                }`
+                              }
+                            >
+                              {item.label}
+                            </NavLink>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.nav>
+              )}
+            </AnimatePresence>
+          </motion.div>
         )}
+      </AnimatePresence>
+      {/* Enquiry Modal for large screens */}
+      <AnimatePresence>
+        {showEnquiryModal && <ModalContact onClose={() => setShowEnquiryModal(false)} />}
       </AnimatePresence>
     </header>
   );
