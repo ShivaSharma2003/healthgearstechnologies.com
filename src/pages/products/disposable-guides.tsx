@@ -24,6 +24,64 @@ const DisposableGuidesimport = () => {
     },
   ];
 
+  const Brand = [
+    {
+      src: "/Brands/CanonLogo.png",
+      alt: "Brand 1",
+      pdfLink: "",
+    },
+    {
+      src: "/Brands/FujifilmLogo.png",
+      alt: "Brand 2",
+      pdfLink: "",
+    },
+    {
+      src: "/Brands/EdanLogo.png",
+      alt: "Brand 3",
+      pdfLink: "",
+    },
+    {
+      src: "/Brands/GeLogo.png",
+      alt: "Brand 4",
+      pdfLink: "",
+    },
+    {
+      src: "/Brands/HitachiLogo.png",
+      alt: "Brand 5",
+      pdfLink: "",
+    },
+    {
+      src: "/Brands/MindrayLogo.png",
+      alt: "Brand 6",
+      pdfLink: "",
+    },
+    {
+      src: "/Brands/SamsungLogo.png",
+      alt: "Brand 7",
+      pdfLink: "",
+    },
+    {
+      src: "/Brands/SiemensLogo.png",
+      alt: "Brand 8",
+      pdfLink: "",
+    },
+    {
+      src: "/Brands/SiuiLogo.png",
+      alt: "Brand 9",
+      pdfLink: "",
+    },
+    {
+      src: "/Brands/VinnoLogo.png",
+      alt: "Brand 10",
+      pdfLink: "",
+    },
+    {
+      src: "/Brands/WisonicLogo.png",
+      alt: "Brand 11",
+      pdfLink: "",
+    },
+  ];
+
   // Auto-advance carousel
   useEffect(() => {
     const interval = setInterval(() => {
@@ -90,12 +148,50 @@ const DisposableGuidesimport = () => {
                   A disposable biopsy guide is a single-use attachment designed
                   to fit onto an ultrasound probe. It assists clinicians in
                   guiding needles accurately during procedures such as biopsies,
-                  aspirations, and injections — ensuring precision,
-                  consistency, and safety.
+                  aspirations, and injections — ensuring precision, consistency,
+                  and safety.
                 </motion.p>
               </div>
             </motion.div>
           </div>
+          <section className="bg-white py-16 overflow-hidden border-t border-b border-slate-100">
+            <div className="max-w-6xl mx-auto px-6">
+              <div className="text-center mb-12">
+                <h1 className="text-3xl font-bold text-blue-600 uppercase tracking-wide mb-2">
+                  Compatible Brands
+                </h1>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+              >
+                {Brand.map((src, index) => (
+                  <motion.div
+                    key={src.src}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group relative"
+                  >
+                    <div className="aspect-[2/2] bg-slate-50 rounded-xl p-6 flex items-center justify-center hover:bg-slate-100 transition-colors">
+                      {/* Replace with actual logo URLs when available */}
+                        <div className="text-center">
+                          <img
+                            className="text-sm font-medium text-slate-700 group-hover:text-blue-600 transition-colors"
+                            src={src.src}
+                            alt={src.src}
+                          />
+                        </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </section>
         </div>
       </section>
     </main>
