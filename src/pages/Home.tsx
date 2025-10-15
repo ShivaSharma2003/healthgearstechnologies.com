@@ -12,31 +12,31 @@ import {
 const slides = [
   {
     id: 1,
-    src: "/hero/HeroSectionImg1.jpg",
-    alt: "Refurbished ultrasound System",
-    title: "Refurbished ultrasound System",
-    desc: "Next-generation imaging clarity",
+    src: "/hero/HeroSectionImg4.jpg",
+    alt: "Ultrasound Services",
+    title: "Ultrasound Services",
+    desc: "Data-driven decisions",
   },
   {
     id: 2,
-    src: "/hero/HeroSectionImg2.jpg",
-    alt: "Reusable Needle Guide",
-    title: "Reusable Needle Guide",
-    desc: "Precision meets innovation",
-  },
-  {
-    id: 3,
     src: "/hero/HeroSectionImg3.jpg",
     alt: "Disposable Needle Guide",
     title: "Disposable Needle Guide",
     desc: "Continuous care solutions",
   },
   {
+    id: 3,
+    src: "/hero/HeroSectionImg1.jpg",
+    alt: "Refurbished ultrasound System",
+    title: "Refurbished ultrasound System",
+    desc: "Next-generation imaging clarity",
+  },
+  {
     id: 4,
-    src: "/hero/HeroSectionImg4.jpg",
-    alt: "Ultrasound Services",
-    title: "Ultrasound Services",
-    desc: "Data-driven decisions",
+    src: "/hero/HeroSectionImg2.jpg",
+    alt: "Reusable Needle Guide",
+    title: "Reusable Needle Guide",
+    desc: "Precision meets innovation",
   },
 ];
 
@@ -94,7 +94,7 @@ export default function Home() {
                   {slides[index].title}
                 </h2>
                 <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                  Ultrasound Machine and Biopsy Devices
+                  Ultrasound Biopsy Guides and Device
                 </h1>
                 <p className="text-xl text-slate-200 max-w-xl">
                   HealthGears Technologies delivers cutting-edge solutions in

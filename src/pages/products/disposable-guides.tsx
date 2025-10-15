@@ -179,13 +179,13 @@ const DisposableGuidesimport = () => {
                   >
                     <div className="aspect-[2/2] bg-slate-50 rounded-xl p-6 flex items-center justify-center hover:bg-slate-100 transition-colors">
                       {/* Replace with actual logo URLs when available */}
-                        <div className="text-center">
-                          <img
-                            className="text-sm font-medium text-slate-700 group-hover:text-blue-600 transition-colors"
-                            src={src.src}
-                            alt={src.src}
-                          />
-                        </div>
+                      <div className="text-center">
+                        <img
+                          className="text-sm font-medium text-slate-700 group-hover:text-blue-600 transition-colors"
+                          src={src.src}
+                          alt={src.src}
+                        />
+                      </div>
                     </div>
                   </motion.div>
                 ))}
